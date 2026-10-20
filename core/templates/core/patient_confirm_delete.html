@@ -1,0 +1,30 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Patient | MediCare HMS</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+    <main class="dashboard">
+        <section class="login-card">
+            <h2>Confirm Delete</h2>
+            <p class="subtitle">
+                Are you sure you want to delete {{ patient.full_name }}?
+            </p>
+
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit">Yes, Delete Patient</button>
+            </form>
+
+            <p style="margin-top: 18px;">
+                <a href="{% url 'patient_list' %}">Cancel</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>
